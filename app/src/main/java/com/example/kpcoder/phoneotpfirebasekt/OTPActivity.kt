@@ -10,6 +10,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
+import com.example.kpcoder.phoneotpfirebasekt.extensions.Extensions.toast
 import com.example.kpcoder.phoneotpfirebasekt.utils.FirebaseUtils.auth
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -67,10 +68,10 @@ class OTPActivity : AppCompatActivity() {
                     progressBar.visibility = View.VISIBLE
                     signInWithPhoneAuthCredential(credential)
                 }else {
-                    Toast.makeText(this, "Please Enter Correct OTP", Toast.LENGTH_SHORT).show()
+                    toast("Please Enter Correct OTP")
                 }
             }else {
-                Toast.makeText(this, "Please Correct OTP", Toast.LENGTH_SHORT).show()
+                toast("Please Correct OTP")
             }
         }
     }
@@ -149,7 +150,7 @@ class OTPActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
 
-                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
+                    toast("Authenticate Successfully")
                     sendToMain()
                 } else {
                     // Sign in failed, display a message and update the UI

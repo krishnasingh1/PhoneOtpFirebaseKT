@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.kpcoder.phoneotpfirebasekt.extensions.Extensions.toast
 import com.example.kpcoder.phoneotpfirebasekt.utils.FirebaseUtils.auth
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -46,10 +47,10 @@ class PhoneActivity : AppCompatActivity() {
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(option )
                 }else (
-                        Toast.makeText(this, "Please Enter correct Number", Toast.LENGTH_SHORT).show()
+                        toast("Please Enter correct Number")
                 )
             }else {
-                Toast.makeText(this, "Please Enter Number", Toast.LENGTH_SHORT).show()
+                toast("Please Enter Number")
             }
         }
     }
@@ -66,7 +67,7 @@ class PhoneActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // sign in success, update UI with the signed-in user,s information
-                    Toast.makeText(this, "Authentication Successfully", Toast.LENGTH_SHORT).show()
+                    toast("Authentication Successfully")
                     sendToMain()
                 }else {
                     // Sign in failed, display a message and update the UT
